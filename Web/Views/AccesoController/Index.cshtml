@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "INICIO SESIÓN";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>INICIO DE SESIÓN</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/img/favilogo.png">
+    <script data-search-pseudo-elements defer src="~/Scripts/fontawesome/all.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/fontawesome/feather.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="login">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container-xl px-4">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+                            <br /><br /><br />
+                            <div class="card mt-3 align-content-center">
+                                <div class="card-body p-2 text-center">
+
+
+                                    <div class="h3 fw-light mb-3">Inicio de Sesión</div>
+                                </div>
+
+                                <div class="card-body pt-0">
+                                    <!-- Login form-->
+                                    <form action="@Url.Action("Index","Acceso")" method="post">
+                                        <!-- Form Group (email address)-->
+                                        <div class="mb-3">
+                                            <label class="text-gray-600 medium" for="emailExample">Correo</label>
+                                            <input class="form-control form-control-solid form-control-sm" type="text" name="correo" aria-label="Email Address" aria-describedby="emailExample" onkeyup="Minusculas(this);" />
+                                        </div>
+                                        <!-- Form Group (password)-->
+                                        <div class="mb-3">
+                                            <label class="text-gray-600 medium" for="passwordExample">Contraseña</label>
+                                            <input class="form-control form-control-solid form-control-sm" type="password" name="clave" aria-label="Password" aria-describedby="passwordExample" autocomplete="off" />
+                                        </div>
+                                        @{
+                                            if (ViewBag.Error != null)
+                                            {
+                                                <div class="p-1  mb-3 text-red text-center">@ViewBag.Error</div>
+                                            }
+
+                                        }
+                                        <!-- Form Group (forgot password link)-->
+                                        <div class="mb-3"><a class="small" href="@Url.Action("Reestablecer")">¿Olvidaste tu contraseña?</a></div>
+                                        <!-- Form Group (login box)-->
+                                        <div class="d-grid gap-2 mb-0">
+
+                                            <button type="submit" class="btn is">INICIAR SESIÓN</button>
+                                        </div>
+
+
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="footer-admin mt-auto login">
+                <div class="container-xl px-4">
+                    <div class="row">
+                        <div class="col-md-6 small">Copyright &copy; SYSTEM @DateTime.Now.Year.ToString()</div>
+                        <div class="col-md-6 text-md-end small">
+                            <a href="#!">Política de Privacidad</a>
+                            &middot;
+                            <a href="#!">Terminos &amp; Condiciones</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <script>
+
+        /*//----Mayusculas y Minusculas-----*/
+        function Mayusculas(e) {
+            e.value = e.value.toUpperCase();
+        }
+
+        function Minusculas(e) {
+            e.value = e.value.toLowerCase();
+        }
+
+    </script>
+
+
+
+    <script src="~/Scripts/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/scripts.js"></script>
+</body>
+</html>
+

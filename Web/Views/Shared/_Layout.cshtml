@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SYSTEM - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body class="nav-fixed">
+    <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+
+        <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+        <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="@Url.Action("Index","Usuario")">SYSTEM</a>
+        <ul class="navbar-nav align-items-center ms-auto">
+
+            <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="bell"></i></a>
+                <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
+                    <h6 class="dropdown-header dropdown-notifications-header">
+                        <i class="me-2" data-feather="bell"></i>
+                        Alerts Center
+                    </h6>
+                    <!-- Example Alert 1-->
+                  
+
+
+                    <a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
+                </div>
+            </li>
+            <!-- Messages Dropdown-->
+            <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="mail"></i></a>
+                <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownMessages">
+                    <h6 class="dropdown-header dropdown-notifications-header">
+                        <i class="me-2" data-feather="mail"></i>
+                        Message Center
+                    </h6>
+                    <!-- Example Message 1  -->
+                   
+                    <!-- Footer Link-->
+                    <a class="dropdown-item dropdown-notifications-footer" href="#!">Read All Messages</a>
+                </div>
+            </li>
+            <!-- User Dropdown-->
+            <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="~/Content/assets/img/illustrations/profiles/profile-1.png" width="35px" height="35px" /></a>
+                <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
+                    <h6 class="dropdown-header d-flex align-items-center">
+
+                        <div class="dropdown-user-details">
+                            <div class="dropdown-user-details-email" title="@User.Identity.Name">@User.Identity.Name</div>
+                        </div>
+                    </h6>
+                    <a class="dropdown-item" href="@Url.Action("CerrarSesion", "Acceso")">
+                        <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
+                        Cerrar sesión
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+
+            <nav class="sidenav shadow-right sidenav-light">
+
+                <div class="sidenav-menu">
+                    <div class="nav accordion" id="accordionSidenav">
+                        <div class="sidenav-menu-heading d-sm-none">Account</div>
+                        <a class="nav-link d-sm-none" href="#!">
+                            <div class="nav-link-icon"><i data-feather="bell"></i></div>
+                            Alerts
+                            <span class="badge bg-warning-soft text-warning ms-auto">4 New!</span>
+                        </a>
+
+                        <a class="nav-link d-sm-none" href="#!">
+                            <div class="nav-link-icon"><i data-feather="mail"></i></div>
+                            Messages
+                            <span class="badge bg-success-soft text-success ms-auto">2 New!</span>
+                        </a>
+
+                        <div class="sidenav-menu-heading">Core</div>
+
+
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
+                            <div class="nav-link-icon"><i data-feather="user-plus"></i></div>
+                            Usuarios
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseUsers" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                                <a class="nav-link" href="@Url.Action("Index","Usuario")">Usuario</a>
+                                <a class="nav-link" href="@Url.Action("Index","Rol")">Rols</a>
+                               
+
+                            </nav>
+                        </div>
+
+                    
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                @RenderBody()
+            </main>
+            <footer class="footer-admin mt-auto footer-light">
+                <div class="container-xl px-4">
+                    <div class="row">
+                        <div class="col-md-6 small">Copyright &copy; SYSTEM @DateTime.Now.Year.ToString()</div>
+                        <div class="col-md-6 text-md-end small">
+                            <a href="#!">Politica de Privacidad</a>
+                            &middot;
+                            <a href="#!">Terminos y Condiciones</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/complementos")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

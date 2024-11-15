@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "REESTABLECER";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>INICIO DE SESIÓN</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+    <script data-search-pseudo-elements defer src="~/Scripts/fontawesome/all.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/fontawesome/feather.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body resetpassword">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container-xl px-4">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <!-- Basic forgot password form-->
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header d-flex flex-column align-items-center">
+
+                                    <h4 class="fw-light mt-0">Restablecer contraseña</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="small mb-3 text-muted">Ingrese su dirección de correo electrónico y le enviaremos una contraseña.</div>
+                                    <!-- Forgot password form-->
+                                    <form action="@Url.Action("Reestablecer","Acceso")" method="post">
+                                        <!-- Form Group (email address)-->
+                                        <div class="mb-3">
+                                            <label class="small mb-1" for="inputEmailAddress">Correo electrónico</label>
+                                            <input class="form-control form-control-sm" name="correo" type="email" autocomplete="off" />
+                                        </div>
+
+                                        @{
+                                            if (ViewBag.Error != null)
+                                            {
+                                                <div class="p-1  mb-3 text-red text-center">@ViewBag.Error</div>
+                                            }
+
+                                        }
+
+                                        @{
+                                            if (ViewBag.SuccessMessage != null)
+                                            {
+                                                <div class="p-1  mb-3 text-green text-center">@ViewBag.SuccessMessage</div>
+                                            }
+
+                                        }
+                                        <!-- Form Group (submit options)-->
+                                        <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+
+                                            <button type="submit" class="btn is" href="#">Restablecer contraseña</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="small"><a class="resetiniciosesion" href="@Url.Action("Index")">Tienes una cuenta? Inicia sesión!</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="footer-admin mt-auto login">
+                <div class="container-xl px-4">
+                    <div class="row">
+                        <div class="col-md-6 small">Copyright &copy; SYSTEM @DateTime.Now.Year.ToString()</div>
+                        <div class="col-md-6 text-md-end small">
+                            <a href="#!">Política de Privacidad</a>
+                            &middot;
+                            <a href="#!">Terminos &amp; Condiciones</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="~/Scripts/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/scripts.js"></script>
+</body>
